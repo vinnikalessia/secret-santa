@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useSantaStore } from '../stores/santa'
+import { useSantaStore } from '../stores/santaStore'
 
 const nameInput = ref('')
 const touched = ref(false)

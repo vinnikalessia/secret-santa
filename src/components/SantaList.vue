@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useSantaStore } from '../stores/santaStore'
 import SantaCard from './SantaCard.vue'
+import ExportExcelButton from './ExportExcelButton.vue'
 
 const store = useSantaStore()
 
@@ -11,7 +12,7 @@ const revealing = ref<Record<number, boolean>>({})
 
 function ensureMissions() {
     if (store.missions.length === 0) {
-        store.generateMissions()
+        store.assignMissions()
     }
 }
 
@@ -32,15 +33,20 @@ function handleReveal(id: number) {
 
 <template>
     <section v-if="store.santa.length" class="space-y-4">
-        <div class="flex items-center gap-3">
-        <h2
+        <div class="flex items-start gap-4 justify-between flex-wrap">
+        <div class="flex flex-col gap-1 min-w-[220px]">
+            <h2
             class="text-xl font-semibold bg-gradient-to-r from-indigo-700 to-sky-500 bg-clip-text text-transparent"
-        >
+            >
             All participants
-        </h2>
-        <span v-if="store.santa.length < 3" class="text-xs text-slate-500 italic"
+            </h2>
+            <span v-if="store.santa.length < 3" class="text-xs text-slate-500 italic"
             >Add {{ 3 - store.santa.length }} more to enable mission reveal</span
-        >
+            >
+        </div>
+        <div class="ml-auto">
+            <ExportExcelButton />
+        </div>
         </div>
         <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         <SantaCard

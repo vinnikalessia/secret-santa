@@ -14,7 +14,7 @@ export const useSantaStore = defineStore('santa', {
         addSanta(name: string) {
             this.santa.push({ id: this.nextId++, name });
         },
-        generateMissions() {
+        assignMissions() {
             // you have to be at least with 3 Santa's in total
             if (this.santa.length < 3) return;
 

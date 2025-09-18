@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import UserList from './components/SantaList.vue'
 import Inputfield from './components/Inputfield.vue'
+import SantaList from './components/SantaList.vue'
 </script>
 
 <template>
@@ -10,7 +10,7 @@ import Inputfield from './components/Inputfield.vue'
     </header>
     <main class="flex flex-col gap-6 p-8">
       <Inputfield />
-      <UserList />
+      <SantaList />
     </main>
   </div>
 </template>

@@ -15,7 +15,7 @@ const alreadyExists = computed(() =>
 
 const error = computed(() => {
   if (!touched.value && trimmed.value.length === 0) return ''
-  if (trimmed.value.length === 0) return 'Please enter a name'
+  if (trimmed.value.length === 0) return 'Please enter a unique name'
   if (trimmed.value.length > maxLength) return `Name can be max ${maxLength} characters`
   if (alreadyExists.value) return 'This name is already added'
   return ''
